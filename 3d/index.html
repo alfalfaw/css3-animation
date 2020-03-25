@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      main {
+        position: absolute;
+        height: 400px;
+        width: 400px;
+        top: 50%;
+        left: 50%;
+        margin-top: -200px;
+        margin-left: -200px;
+        border: 1px solid #ccc;
+        /* 增加3d透视效果，否则看不到z轴 */
+        transform-style: preserve-3d;
+        transform: perspective(900px) rotateY(-45deg);
+      }
+      main > div {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -100px;
+      }
+      main > div:nth-of-type(1) {
+        background: #f1c40f;
+        transition: 1s;
+      }
+      /* 沿对角线旋转90deg */
+      main:hover div:nth-of-type(1) {
+        transform: rotate3d(1, 1, 0, 90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div></div>
+    </main>
+  </body>
+</html>

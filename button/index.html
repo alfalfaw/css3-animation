@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        background: #2c3e50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main {
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      main .btn {
+        color: #ecf0f1;
+        font-size: 1.5em;
+        text-decoration: none;
+        border: solid 1px #e74c3c;
+        /* 撑满父盒子 */
+        flex: 1;
+        height: 55px;
+        line-height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        /* 隐藏溢出部分 */
+        overflow: hidden;
+      }
+      .btn::after {
+        content: "";
+        /* 默认不显示 */
+        width: 0;
+
+        height: 100%;
+        position: absolute;
+
+        /* 倾斜45deg */
+        transform: skew(45deg);
+
+        background: #c0392b;
+        /* 不覆盖文字 */
+        z-index: -1;
+        transition: 0.5s;
+      }
+      /* 鼠标悬停宽度变为自身两倍 */
+      .btn:hover.btn:hover::after {
+        width: 200%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="" class="btn">百度一下</a>
+    </main>
+  </body>
+</html>

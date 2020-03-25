@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main {
+        position: relative;
+        height: 200px;
+        width: 200px;
+        /* border: 2px solid #ccc; */
+        transform-style: preserve-3d;
+        transform-origin: center center 100px;
+        transform: perspective(900px) rotateX(-45deg) rotateY(45deg);
+        transition: 2s;
+      }
+      body:hover main {
+        transform: perspective(900px) rotateX(-45deg) rotateY(225deg);
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        font-size: 4em;
+        display: flex;
+        background: #2ecc71;
+        justify-content: center;
+        align-items: center;
+        /* z轴变化为长宽的一半 */
+        transform-origin: center center 100px;
+      }
+      div:nth-child(1) {
+        background: #f1c40f;
+        transform: rotateY(90deg);
+      }
+      div:nth-child(2) {
+        background: #3498db;
+        transform: rotateY(180deg);
+      }
+      div:nth-child(3) {
+        background: #1abc9c;
+        transform: rotateY(270deg);
+      }
+      div:nth-child(4) {
+        background: #9b59b6;
+        transform: rotateY(360deg);
+      }
+      div:nth-child(5) {
+        transform-origin: top;
+        background: #f39c12;
+        transform: rotateX(90deg);
+      }
+      div:nth-child(6) {
+        background: #c0392b;
+        transform-origin: bottom;
+        transform: rotateX(-90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </main>
+  </body>
+</html>

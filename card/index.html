@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Card</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #9b59b6;
+      }
+      .card {
+        width: 300px;
+        height: 200px;
+        background: #d35400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: white;
+        text-transform: uppercase;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: perspective(900px) rotateX(45deg) rotateY(25deg);
+      }
+      .card::before,
+      .card::after {
+        background: #c0392b;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        transition: 2s;
+      }
+      .card::before {
+        content: "生日";
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        transform-origin: left;
+        border-right: solid 2px #d35400;
+        box-sizing: border-box;
+        padding-right: 20px;
+      }
+      .card::after {
+        content: "快乐";
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transform-origin: right;
+        border-left: solid 2px #d35400;
+        box-sizing: border-box;
+        padding-left: 10px;
+      }
+      .card:hover::before {
+        transform: rotateY(-180deg);
+      }
+      .card:hover::after {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">happy birthday</div>
+  </body>
+</html>

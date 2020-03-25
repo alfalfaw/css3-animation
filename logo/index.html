@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Logo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #34495e;
+      }
+      main div {
+        cursor: pointer;
+        color: #ecf0f1;
+        font-size: 2em;
+      }
+      main > div > strong {
+        /* 行内元素必须变成块级元素才能旋转 */
+        display: inline-block;
+        transition: 1s;
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        background: #000;
+        text-align: center;
+      }
+      main div > strong:nth-child(1) {
+        background: #e74c3c;
+      }
+      main div > strong:nth-child(2) {
+        background: #f1c40f;
+      }
+      main div:hover > strong:nth-of-type(1) {
+        transform: rotate(360deg);
+      }
+      main div:hover > strong:nth-of-type(2) {
+        transform: rotate(-360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div><strong>a</strong>lp<strong>h</strong>abe<strong>t</strong></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      main {
+        height: 100vh;
+        transform-style: preserve-3d;
+        transform: perspective(900px);
+        transition: 2s;
+      }
+
+      main.login {
+        transform: perspective(900px) rotateY(0deg);
+      }
+      main.register {
+        transform: perspective(900px) rotateY(180deg);
+      }
+      /* body:hover main {
+        background: #ccc;
+        transform: perspective(900px) translateY(180deg);
+      } */
+      div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4em;
+        text-transform: uppercase;
+        color: white;
+        /* 背面隐藏 */
+        backface-visibility: hidden;
+      }
+      div:nth-child(1) {
+        background: #9b59b6;
+      }
+      div:nth-child(2) {
+        background: #e74c3c;
+        transform: rotateY(180deg);
+      }
+      nav {
+        position: absolute;
+        width: 100%;
+        bottom: 60px;
+        text-align: center;
+      }
+      nav a {
+        padding: 10px 20px;
+        background: #2c3e50;
+        margin-right: 10px;
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>Login</div>
+      <div>Register</div>
+    </main>
+    <nav>
+      <!-- href="javascript:;"防止链接被点击 -->
+      <a href="javascript:;" onclick="change('login')">登录</a>
+      <a href="javascript:;" onclick="change('register')">注册</a>
+    </nav>
+    <script>
+      function change(t) {
+        switch (t) {
+          case "login":
+            $("main")
+              .removeClass()
+              .addClass("login");
+            break;
+
+          case "register":
+            $("main")
+              .removeClass()
+              .addClass("register");
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

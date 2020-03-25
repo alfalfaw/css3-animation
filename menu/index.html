@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      ul {
+        display: flex;
+        list-style: none;
+      }
+      ul li {
+        margin-right: 10px;
+      }
+      ul li strong {
+        padding: 5px 30px;
+
+        background: #4cd137;
+        text-transform: uppercase;
+        color: white;
+      }
+      ul li strong + div {
+        /* 相对定位和z-index配合使用，减小元素z值*/
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: #40739e;
+        padding: 10px;
+        /* 默认子菜单隐藏 */
+        transform: scale(0);
+        transition: 0.6s;
+        z-index: -1;
+        /* 改变元素缩放原点 */
+        transform-origin: left top;
+      }
+      ul li strong + div a {
+        color: white;
+        text-decoration: none;
+        padding: 0 5px;
+      }
+      /* 鼠标悬停子菜单显示 */
+      ul li:hover strong + div {
+        transform: scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <ul>
+        <li>
+          <strong>video</strong>
+          <div>
+            <a href="">HDCMS</a>
+            <a href="">PHP</a>
+          </div>
+        </li>
+        <li>
+          <strong>live</strong>
+          <div>
+            <a href="">LINUX</a>
+            <a href="">CSS3</a>
+          </div>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

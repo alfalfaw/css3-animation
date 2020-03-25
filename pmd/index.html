@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>移动端视图切换</title>
+    <!-- fa4-$ 生成link -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      body::after {
+        content: "hello,frontend";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        opacity: 0.3;
+      }
+      main {
+        flex: 1;
+        position: relative;
+      }
+      nav {
+        height: 8vh;
+        background: #34495e;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        opacity: 0.8;
+        text-transform: uppercase;
+        /* a 元素占满父容器 */
+        flex: 1;
+        /* 元素居中显示 */
+        text-align: center;
+        font-size: 1.2em;
+      }
+      nav a:nth-child(2) {
+        border-right: solid 1px silver;
+        border-left: solid 1px silver;
+      }
+      main > div:target {
+        transform: translateY(0);
+      }
+      main > div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        /* 默认向上移动自身距离 */
+        transform: translateY(-100%);
+        transition: 1s;
+        z-index: 2;
+      }
+      /* flex实现上下两栏自适应 */
+      /* a元素通过href链接到某个元素的id，当这个a元素点击后，target就会触发 */
+      main > div:nth-of-type(1):target {
+        background: #9c88ff;
+      }
+      main > div:nth-of-type(2):target {
+        background: #00a8ff;
+      }
+      main > div:nth-of-type(3):target {
+        background: #4cd137;
+      }
+      i[class^="fa"] {
+        font-size: 6em;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="home">
+        <i class="fa fa-home" aria-hidden="true"></i>
+      </div>
+      <div id="video">
+        <i class="fa fa-address-card" aria-hidden="true"></i>
+      </div>
+      <div id="live">
+        <i class="fa fa-file-video-o" aria-hidden="true"></i>
+      </div>
+    </main>
+    <nav>
+      <a href="#home">home</a>
+      <a href="#video">video</a>
+      <a href="#live">live</a>
+    </nav>
+  </body>
+</html>

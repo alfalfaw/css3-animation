@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  background-color: #40739e;
+  box-sizing: border-box;
+}
+.main {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container input {
+  padding: 10px;
+  margin-top: 20px;
+}
+.field {
+  position: relative;
+  /* 隐藏溢出部分 */
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.field::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  left: 0;
+  /* 内联元素不设置宽度默认为0 */
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    white,
+    #00a8ff,
+    #9c88ff,
+    #fbc531,
+    #4cd137,
+    white
+  );
+  /* 默认向左移动自身距离 */
+  transform: translateX(-100%);
+  transition: 1s;
+}
+.field:hover::before {
+  transform: translateX(100%);
+}
+.field input {
+  border: none;
+  outline: none;
+  background: #cfcfcf;
+  padding: 10px;
+}

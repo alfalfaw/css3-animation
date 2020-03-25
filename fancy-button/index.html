@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cube</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        background: #34495e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn {
+        color: #ecf0f1;
+        text-decoration: none;
+        width: 200px;
+        height: 40px;
+        background: #e74c3c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transform: skewX(25deg) rotate(-15deg);
+        /* 调整字符间距 */
+        letter-spacing: 0.5rem;
+        font-weight: bold;
+      }
+      .btn::before {
+        content: "";
+        width: 10px;
+        height: 100%;
+        left: -10px;
+        background: #000;
+        position: absolute;
+        /* 沿着y轴倾斜 */
+        transform: skewY(-45deg) translateY(5px);
+      }
+      .btn::after {
+        content: "";
+        width: 100%;
+        height: 10px;
+        bottom: -10px;
+        background: #000;
+        position: absolute;
+        /* 沿着y轴倾斜 */
+        transform: skewX(-45deg) translateX(-5px);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="" class="btn">百度一下</a>
+  </body>
+</html>
